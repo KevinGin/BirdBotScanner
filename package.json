@@ -1,0 +1,27 @@
+{
+  "name": "birdbotscanner",
+  "version": "1.0.0",
+  "description": "backend for birdbot",
+  "main": "handler.js",
+  "scripts": {
+    "local": "source secrets.sh && serverless invoke local -f scan -l",
+    "lint": "./node_modules/.bin/eslint --fix handler.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinGin/BirdBotScanner.git"
+  },
+  "author": "kevin gin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KevinGin/BirdBotScanner/issues"
+  },
+  "homepage": "https://github.com/KevinGin/BirdBotScanner#readme",
+  "devDependencies": {
+    "eslint": "^7.14.0"
+  },
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
