@@ -7,3 +7,6 @@ jspm_packages
 
 # secrets
 secrets.*
+
+# zipped file for AWS Lambda Upload
+*.zip

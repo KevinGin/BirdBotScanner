@@ -42,11 +42,11 @@ module.exports.scan = async event => {
     let tweet = commonName + " " + url;
 
     Twitter.post("statuses/update", { status: tweet }, function(err, data, response) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("tweet posted for " + commonName);
-        }});
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("tweet posted for " + commonName);
+      }});
   }
 
   // // List of species that we do not want to Tweet, e.g. common species or introduced. This will expand over time.
