@@ -2,6 +2,7 @@
 
 const request = require("request");
 const AWS = require("aws-sdk");
+const twit = require("twit");
 const LOCATION = "US-CA-085"; // Santa Clara County, California, US
 
 module.exports.scan = async event => {
@@ -22,6 +23,30 @@ module.exports.scan = async event => {
     s3.upload(params, function(err, data) {
       if (err) throw new Error(err);
     });
+  }
+
+  function tweetObservation(observation) {
+    let config = {
+      consumer_key: process.env.CONSUMER_KEY,
+      consumer_secret: process.env.CONSUMER_SECRET,
+      access_token: process.env.ACCESS_TOKEN,
+      access_token_secret: process.env.ACCESS_TOKEN_SECRET
+    };
+
+    console.log(observation);
+
+    const Twitter = new twit(config);
+    const commonName = observation.comName;
+    const url = "https://ebird.org/checklist/" + observation.subId;
+
+    let tweet = commonName + " " + url;
+
+    Twitter.post("statuses/update", { status: tweet }, function(err, data, response) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("tweet posted for " + commonName);
+        }});
   }
 
   // // List of species that we do not want to Tweet, e.g. common species or introduced. This will expand over time.
@@ -77,11 +102,18 @@ module.exports.scan = async event => {
       const speciesCode = observation.speciesCode;
       if (!speciesSeen[speciesCode]) {
         speciesSeen[speciesCode] = true;
-        writeObservation(observation);
+        try {
+          // TODO(kevingin): move tweet action into separate lambda triggered by S3 bucket change
+          writeObservation(observation);
+          tweetObservation(observation);
+        } catch (err) {
+          console.log(err);
+        }
       }
     });
   });
 
+  // TODO: Don't return 200 if caught exception
   return {
     statusCode: 200,
     body: JSON.stringify(
