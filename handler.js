@@ -2,13 +2,14 @@
 
 // todo -- clean up dependencies
 const request = require("request");
-const axios = require("axios");
+
 const AWS = require("aws-sdk");
 const twit = require("twit");
 const writeObservation = require("./helper/writeObservation");
 const tweetObservation = require("./helper/tweetObservation");
 const createDenyList = require("./helper/createDenyList");
 const createSpeciesSeenList = require("./helper/createSpeciesSeenList");
+const getObservations = require("./helper/getObservations");
 const LOCATION = "US-CA-085"; // Santa Clara County, California, US
 
 module.exports.scan = async event => {
@@ -28,34 +29,22 @@ module.exports.scan = async event => {
   // List of species that have already been tweeted in the last 
   const speciesSeen = await createSpeciesSeenList(s3, params);
 
-  var options = {
-    method: "get",
-    url: "https://api.ebird.org/v2/data/obs/US-CA-085/recent/notable?detail=full",
-    headers: { 
-      "X-eBirdApiToken": process.env.EBIRD_API_TOKEN
-    }
-  };
-  
-  await axios(options)
-    .then(async function (response) {
-      console.log("inside callback");
-      const data = response.data;
-      const observations = data.filter(obs => !denyList[obs.speciesCode]);
-      for (let i = 0; i < observations.length; i++) {
-        let observation = observations[i];
-        const speciesCode = observation.speciesCode;
-        if (!speciesSeen[speciesCode]) {
-          speciesSeen[speciesCode] = true;
-          console.log("species: " + speciesCode);
-          await writeObservation(observation, LOCATION, s3);
-          await tweetObservation(observation, twit);
-        }
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  // Make call to eBird for notable observations
+  const response = await getObservations();
+  const data = response.data;
 
+  const observations = data.filter(obs => !denyList[obs.speciesCode]);
+
+  for (let i = 0; i < observations.length; i++) {
+    let observation = observations[i];
+    const speciesCode = observation.speciesCode;
+    if (!speciesSeen[speciesCode]) {
+      speciesSeen[speciesCode] = true;
+      console.log("species: " + speciesCode);
+      await writeObservation(observation, LOCATION, s3);
+      await tweetObservation(observation, twit);
+    }
+  }
 
   // TODO: Don't return 200 if caught exception
   return {
