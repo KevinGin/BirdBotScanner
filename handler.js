@@ -54,7 +54,7 @@ module.exports.scan = async event => {
     const commonName = observation.comName;
     const url = "https://ebird.org/checklist/" + observation.subId;
 
-    let tweet = commonName + " " + Math.random().toPrecision(4);
+    let tweet = commonName + " " + url;
 
     await Twitter.post("statuses/update", { status: tweet }, function(err, data, response) {
       if (err) {
