@@ -1,18 +1,11 @@
 "use strict";
 
-module.exports =  async function tweetObservation(observation, twit) {
+const twitRouter = require("./twitRouter");
+
+module.exports =  async function tweetObservation(observation, location, twit) {
   console.log("called tweet observation");
-  
-  //TO DO: take config as parameter, so can tweet to multiple bots
-  let config = {
-    consumer_key: process.env.CONSUMER_KEY,
-    consumer_secret: process.env.CONSUMER_SECRET,
-    access_token: process.env.ACCESS_TOKEN,
-    access_token_secret: process.env.ACCESS_TOKEN_SECRET
-  };
 
-  console.log(observation);
-
+  let config = twitRouter(location);
   const Twitter = new twit(config);
   const commonName = observation.comName;
   const url = "https://ebird.org/checklist/" + observation.subId;

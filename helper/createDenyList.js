@@ -4,7 +4,8 @@
  * TODO(kevingin): read from S3 and make async
  * TODO(kevingin): send in location as pamater, so deny list can vary by location
  */
-module.exports = function createDenyList() {
+module.exports = function createDenyList(location) {
+  // TODO: make county specific...
   const denyList = {};
   const denyListArray = [
     "nutman",  // Scaly-breasted Munia i.e. Nutmeg Mannikin
