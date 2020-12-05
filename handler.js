@@ -22,12 +22,23 @@ module.exports.scan = async event => {
   // Create Cache of all checklists previously handled
   const checklistCache = await getChecklistCache(s3);
 
-  const unhandledObservations = observations.filter(obs => !checklistCache[obs.subId])
+  const unhandledObservations = observations.filter(obs => !checklistCache[obs.subId]);
+
+  console.log("observations: " + observations.length);
+  console.log("checklists: " + Object.keys(checklistCache).length);
+  console.log("unhandled: " + unhandledObservations.length);
+
+  unhandledObservations.forEach(obs => {
+    console.log("  ");
+    console.log(obs);
+    console.log("  ");
+
+  });
 
   // handle observations ==> Tweet
   for (let i = 0; i < locations.length; i++) {
     let location = locations[i];
-    await locationHandler(observations,location,s3);
+    await locationHandler(unhandledObservations,location,s3);
   }
 
   // TODO(kevingin) ensure tweet doesn't fail before adding to cache
@@ -39,8 +50,8 @@ module.exports.scan = async event => {
   const uniqueUnhandledChecklists = {};
 
   for (let i = 0; i < unhandledObservations.length; i++) {
-      let observation = unhandledObservations[i];
-      uniqueUnhandledChecklists[observation.subId] = true;
+    let observation = unhandledObservations[i];
+    uniqueUnhandledChecklists[observation.subId] = true;
   }
 
   // TODO: can we batch this call?
