@@ -24,17 +24,6 @@ module.exports.scan = async event => {
 
   const unhandledObservations = observations.filter(obs => !checklistCache[obs.subId]);
 
-  console.log("observations: " + observations.length);
-  console.log("checklists: " + Object.keys(checklistCache).length);
-  console.log("unhandled: " + unhandledObservations.length);
-
-  unhandledObservations.forEach(obs => {
-    console.log("  ");
-    console.log(obs);
-    console.log("  ");
-
-  });
-
   // handle observations ==> Tweet
   for (let i = 0; i < locations.length; i++) {
     let location = locations[i];
