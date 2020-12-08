@@ -1,5 +1,5 @@
 # BirdBotScanner
-This is the code for a twitter bot that lives here: https://twitter.com/RareBirdBot_SCL. The bot tweets a subset of notable eBird observations for Santa Clara County. Other countiy bots may be added at a later date.
+This is the code for a twitter bot that lives here: https://twitter.com/RareBirdBot_SCL. The bot tweets a subset of notable eBird observations for Santa Clara County. Other county bots may be added at a later date.
 
 
 ## What gets tweeted?
