@@ -25,7 +25,9 @@
   "dependencies": {
     "aws-sdk": "^2.803.0",
     "axios": "^0.21.0",
+    "fs": "0.0.1-security",
     "request": "^2.88.2",
-    "twit": "^2.2.11"
+    "twit": "^2.2.11",
+    "util": "^0.12.3"
   }
 }

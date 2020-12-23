@@ -1,24 +1,34 @@
 "use strict";
 
+const fs = require('fs');
+const util = require('util');
+
 /* Creates a deny list -- bires to not tweet (e.g. exotics, common). List will evolve over time.
- * TODO(kevingin): read from S3 and make async
- * TODO(kevingin): send in location as pamater, so deny list can vary by location
  */
-module.exports = function createDenyList(location) {
-  // TODO: make county specific...
+module.exports = async function createDenyList(location) {
+    // return everything before first space
+    // e.g.   'manduc  // Mandarin Duck',
+  function trim(line) {
+    return line.split(' ')[0];
+  }
+
+  async function createDenyListArray(location) {
+    const readFile = util.promisify(fs.readFile);
+    await readFile('./denyList/'+location+'.txt').then(data => {
+      denyListArray = data.toString().split('\n').map(trim);
+    })
+  }
+
   const denyList = {};
-  const denyListArray = [
-    "nutman",  // Scaly-breasted Munia i.e. Nutmeg Mannikin
-    "westan",  // Western Tanager
-    "manduc",  // Mandarin Duck
-    "chispa",  // Chipping Sparrow
-    "rucspa",  // Rufous-crowned Sparrow
-    "x00048",  // Glaucous-winged x Glaucous Gull (hybrid)
-    "x00050",  // Herring x Glaucous-winged Gull (hybrid)
-    "sxrgoo1", // Snow x Ross's Goose (hybrid)
-    "houwre",  // House Wren
-    "yesfli",  // Northern Flicker (Yellow-shafted)
-  ];
+  let denyListArray = [];
+  try {
+    await createDenyListArray(location, denyListArray);
+  } catch (e) {
+    console.log(e);
+    console.log("could not load denyList for " + location);
+    return {};
+  }
+ 
   denyListArray.forEach(x => denyList[x] = true);
   return denyList;
 };

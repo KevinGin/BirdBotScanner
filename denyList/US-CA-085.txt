@@ -1,0 +1,10 @@
+nutman  // Scaly-breasted Munia i.e. Nutmeg Mannikin
+westan  // Western Tanager
+manduc  // Mandarin Duck
+chispa  // Chipping Sparrow
+rucspa  // Rufous-crowned Sparrow
+x00048  // Glaucous-winged x Glaucous Gull (hybrid)
+x00050  // Herring x Glaucous-winged Gull (hybrid)
+sxrgoo1 // Snow x Ross's Goose (hybrid)
+houwre  // House Wren
+yesfli  // Northern Flicker (Yellow-shafted)

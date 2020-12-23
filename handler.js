@@ -7,6 +7,7 @@ const getObservations = require("./helper/getObservations");
 const locationHandler = require("./helper/locationHandler");
 const getChecklistCache = require("./helper/getChecklistCache");
 const writeToChecklistCache = require("./helper/writeToChecklistCache");
+
 const SANTA_CLARA_COUNTY = "US-CA-085"; // Santa Clara County, California, US
 
 module.exports.scan = async event => {
