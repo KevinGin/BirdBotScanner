@@ -1,6 +1,11 @@
-nutman  // Scaly-breasted Munia i.e. Nutmeg Mannikin
-westan  // Western Tanager
+nutman  // Scaly-breasted Munia i.e. Nutmeg 
+scbmun2 // Scaly-breasted Munia (Scaled)
+compea  // Indian Peafowl 
 manduc  // Mandarin Duck
+rempar  // Red-masked Parakeet
+eurgol  // European Goldfinch
+orabis1 // Northern Red Bishop 
+westan  // Western Tanager
 chispa  // Chipping Sparrow
 rucspa  // Rufous-crowned Sparrow
 x00048  // Glaucous-winged x Glaucous Gull (hybrid)
@@ -8,3 +13,21 @@ x00050  // Herring x Glaucous-winged Gull (hybrid)
 sxrgoo1 // Snow x Ross's Goose (hybrid)
 houwre  // House Wren
 yesfli  // Northern Flicker (Yellow-shafted)
+allhum  // Allen's Hummingbird
+bkchum  // Black-chinned Hummingbird
+lesyel  // Lesser Yellowlegs
+nrwswa  // Northern Rough-winged Swallow
+wlswar  // Wilson's Warbler
+btywar  // Black-throated Gray Warbler
+yelwar  // Yellow Warbler
+sander  // Sanderling
+buggna  // Blue-gray Gnatcatcher
+gnwtea1 // Green-winged Teal (Eurasian x American)
+amewig  // American Wigeon
+snoplo5 // Snowy Plover
+canwre  // Canyon Wren
+lawgol  // Lawrence's Goldfinch
+vauswi  // Vaux's Swift
+horgre  // Horned Grebe
+abetow  // Abert's Towhee (never occur here, don't tweet misid)
+gilfli  // Gilded Flicker -- Never occur here, don't tweet misid
