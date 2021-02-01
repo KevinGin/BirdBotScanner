@@ -2,7 +2,10 @@ nutman  // Scaly-breasted Munia i.e. Nutmeg
 scbmun2 // Scaly-breasted Munia (Scaled)
 compea  // Indian Peafowl 
 manduc  // Mandarin Duck
+mitpar  // Mitred Parakeet
 rempar  // Red-masked Parakeet
+pacpar1 // Pacific Parakeet
+ywcpar  // Yellow-crowned Parrot
 eurgol  // European Goldfinch
 orabis1 // Northern Red Bishop
 chifla1 // Chilean Flamingo
@@ -20,6 +23,7 @@ bkchum  // Black-chinned Hummingbird
 lesyel  // Lesser Yellowlegs
 nrwswa  // Northern Rough-winged Swallow
 barswa  // Barn Swallow
+yerwar3 // Yellow-rumped Warbler (Myrtle x Audubon's)
 wlswar  // Wilson's Warbler
 btywar  // Black-throated Gray Warbler
 yelwar  // Yellow Warbler
@@ -33,5 +37,6 @@ lawgol  // Lawrence's Goldfinch
 vauswi  // Vaux's Swift
 horgre  // Horned Grebe
 weskin  // Western Kingbird
+hooori  // Hooded Oriole
 abetow  // Abert's Towhee (never occur here, don't tweet misid)
 gilfli  // Gilded Flicker -- Never occur here, don't tweet misid
