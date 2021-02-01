@@ -13,8 +13,16 @@ module.exports =  async function locationHandler(allObservations, location, s3) 
   const speciesSeen = await createSpeciesSeenList(s3, location);
   // TODO: refactor variable names to make explicit that must be subnational2 (e.g. California Counties)
   const countyObservations = allObservations.filter(obs => obs.subnational2Code === location);
+  
+  console.log("COUNTY OBSERVATIONS: " + countyObservations.length);
+  countyObservations.forEach(obs => console.log(obs.speciesCode));
+
   // Filter out species seen
   const newObservations = countyObservations.filter(obs => !speciesSeen[obs.speciesCode]);
+  
+  console.log("new observations: ");
+  newObservations.forEach(obs => console.log(obs));
+
   // Filter out deny list
   const observations = newObservations.filter(obs => !denyList[obs.speciesCode]);
   for (let i = 0; i < observations.length; i++) {

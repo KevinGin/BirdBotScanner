@@ -4,7 +4,9 @@ compea  // Indian Peafowl
 manduc  // Mandarin Duck
 rempar  // Red-masked Parakeet
 eurgol  // European Goldfinch
-orabis1 // Northern Red Bishop 
+orabis1 // Northern Red Bishop
+chifla1 // Chilean Flamingo
+gragoo  // Graylag Goose
 westan  // Western Tanager
 chispa  // Chipping Sparrow
 rucspa  // Rufous-crowned Sparrow
@@ -17,6 +19,7 @@ allhum  // Allen's Hummingbird
 bkchum  // Black-chinned Hummingbird
 lesyel  // Lesser Yellowlegs
 nrwswa  // Northern Rough-winged Swallow
+barswa  // Barn Swallow
 wlswar  // Wilson's Warbler
 btywar  // Black-throated Gray Warbler
 yelwar  // Yellow Warbler
@@ -29,5 +32,6 @@ canwre  // Canyon Wren
 lawgol  // Lawrence's Goldfinch
 vauswi  // Vaux's Swift
 horgre  // Horned Grebe
+weskin  // Western Kingbird
 abetow  // Abert's Towhee (never occur here, don't tweet misid)
 gilfli  // Gilded Flicker -- Never occur here, don't tweet misid

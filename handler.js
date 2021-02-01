@@ -16,14 +16,23 @@ module.exports.scan = async event => {
 
   const locations=[SANTA_CLARA_COUNTY];
 
+  console.log("making call to eBird");
   // Make call to eBird for notable observations
   const response = await getObservations();
   const observations = response.data;
+  console.log("found " + observations.length + " observations");
 
   // Create Cache of all checklists previously handled
   const checklistCache = await getChecklistCache(s3);
 
   const unhandledObservations = observations.filter(obs => !checklistCache[obs.subId]);
+
+  console.log("found " + unhandledObservations.length + " unhandledObservations");
+  unhandledObservations.forEach(obs => {
+    console.log("unhandled observation: " + obs.obsId);
+    console.log(obs.comName + " " + obs.subnational2Name)
+  })
+
 
   // handle observations ==> Tweet
   for (let i = 0; i < locations.length; i++) {
