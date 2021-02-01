@@ -4,10 +4,24 @@ const twitRouter = require("./twitRouter");
 
 module.exports =  async function tweetObservation(observation, location, twit) {
   console.log("called tweet observation");
+  
+  const commonName = observation.comName;
+
+  // don't tweet hybrids or domestics
+  if (commonName.toLowerCase().includes("hybrid")) {
+    return;
+  }
+  if (commonName.toLowerCase().includes("domestic")) {
+    return;
+  }
+  if (commonName.toLowerCase().includes("parrot")) {
+    return;
+  }
+
 
   let config = twitRouter(location);
   const Twitter = new twit(config);
-  const commonName = observation.comName;
+
   const locationName = observation.locName;
   const TWITTER_CHARACTER_LIMIT = 280;
   const LINK_CHARACTERS = 23;
