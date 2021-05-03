@@ -30,8 +30,8 @@ module.exports.scan = async event => {
   console.log("found " + unhandledObservations.length + " unhandledObservations");
   unhandledObservations.forEach(obs => {
     console.log("unhandled observation: " + obs.obsId);
-    console.log(obs.comName + " " + obs.subnational2Name)
-  })
+    console.log(obs.comName + " " + obs.subnational2Name);
+  });
 
 
   // handle observations ==> Tweet
