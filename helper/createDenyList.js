@@ -1,22 +1,22 @@
 "use strict";
 
-const fs = require('fs');
-const util = require('util');
+const fs = require("fs");
+const util = require("util");
 
 /* Creates a deny list -- bires to not tweet (e.g. exotics, common). List will evolve over time.
  */
 module.exports = async function createDenyList(location) {
-    // return everything before first space
-    // e.g.   'manduc  // Mandarin Duck',
+  // return everything before first space
+  // e.g.   'manduc  // Mandarin Duck',
   function trim(line) {
-    return line.split(' ')[0];
+    return line.split(" ")[0];
   }
 
   async function createDenyListArray(location) {
     const readFile = util.promisify(fs.readFile);
-    await readFile('./denyList/'+location+'.txt').then(data => {
-      denyListArray = data.toString().split('\n').map(trim);
-    })
+    await readFile("./denyList/"+location+".txt").then(data => {
+      denyListArray = data.toString().split("\n").map(trim);
+    });
   }
 
   const denyList = {};
