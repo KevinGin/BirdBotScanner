@@ -10,9 +10,14 @@ eurgol  // European Goldfinch
 orabis1 // Northern Red Bishop
 chifla1 // Chilean Flamingo
 gragoo  // Graylag Goose
+merlin  // Merlin
+owl1    // Owl sp.
 westan  // Western Tanager
 chispa  // Chipping Sparrow
 rucspa  // Rufous-crowned Sparrow
+foxspa  // Fox Sparrow
+wesgul  // Western Gull
+mewgul  // Mew Gull
 x00048  // Glaucous-winged x Glaucous Gull (hybrid)
 x00050  // Herring x Glaucous-winged Gull (hybrid)
 sxrgoo1 // Snow x Ross's Goose (hybrid)
@@ -31,6 +36,9 @@ sander  // Sanderling
 buggna  // Blue-gray Gnatcatcher
 gnwtea1 // Green-winged Teal (Eurasian x American)
 amewig  // American Wigeon
+comgol  // Common Goldeneye
+y00004  // Common / Barrow's Goldeneye
+redhea  // Redhead
 snoplo5 // Snowy Plover
 canwre  // Canyon Wren
 lawgol  // Lawrence's Goldfinch
@@ -38,5 +46,8 @@ vauswi  // Vaux's Swift
 horgre  // Horned Grebe
 weskin  // Western Kingbird
 hooori  // Hooded Oriole
+ruckin  // Ruby-crowned Kinglet
+amepip  // American Pipit
+blkrai  // Black Rail (sensitive species, known breeders)
 abetow  // Abert's Towhee (never occur here, don't tweet misid)
 gilfli  // Gilded Flicker -- Never occur here, don't tweet misid
